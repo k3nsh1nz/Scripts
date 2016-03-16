@@ -1,9 +1,6 @@
 #!/usr/bin/python
-#
 #bruce force hash password md5
-#dict: https://onedrive.live.com/redir?resid=F8468E56B9F32DFA!29870&authkey=!ADETMCy4NZFwjUI&ithint=file%2czip
-#
-
+#dict: https://goo.gl/qI0YfY
 import re
 import hashlib
 password = open("passwd.txt").read()
