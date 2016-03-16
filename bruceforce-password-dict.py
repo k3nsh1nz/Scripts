@@ -1,4 +1,8 @@
 #!/usr/bin/python
+#
+#bruce force hash password md5
+#
+
 import re
 import hashlib
 password = open("passwd.txt").read()
