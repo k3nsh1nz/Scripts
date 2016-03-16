@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #
 #bruce force hash password md5
+#https://onedrive.live.com/redir?resid=F8468E56B9F32DFA!29870&authkey=!ADETMCy4NZFwjUI&ithint=file%2czip
 #
 
 import re
