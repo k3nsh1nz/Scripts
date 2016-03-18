@@ -55,11 +55,22 @@ echo "Installing Elasticsearch, Logstash, Kibara and NGINX, please wait..."
 yum -y install elasticsearch logstash logstash-contrib nginx
 
 echo "Install/Setup Kibana, please wait..."
-cd /usr/share/nginx/html/
-wget -qc https://download.elastic.co/kibana/kibana/kibana-4.3.0-linux-x64.tar.gz
-tar -zxf /usr/share/nginx/html/kibana-4.3.0-linux-x64.tar.gz
-mv kibana-4.3.0-linux-x64 /usr/share/nginx/html/kibana
-rm -f kibana-4.3.0-linux-x64.tar.gz
+sudo groupadd -g 1005 kibana
+sudo useradd -u 1005 -g 1005 kibana
+	
+cd ~; wget https://download.elastic.co/kibana/kibana/kibana-4.3.0-linux-x64.tar.gz
+tar xvf kibana-*.tar.gz
+
+sudo mkdir -p /opt/kibana
+sudo cp -R ~/kibana-4*/* /opt/kibana/
+
+sudo chown -R kibana: /opt/kibana
+cd /etc/init.d && sudo curl -o kibana https://gist.githubusercontent.com/thisismitch/8b15ac909aed214ad04a/raw/fc5025c3fc499ad8262aff34ba7fde8c87ead7c0/kibana-4.x-init
+cd /etc/default && sudo curl -o kibana https://gist.githubusercontent.com/thisismitch/8b15ac909aed214ad04a/raw/fc5025c3fc499ad8262aff34ba7fde8c87ead7c0/kibana-4.x-default
+
+sudo chmod +x /etc/init.d/kibana
+sudo service kibana start
+sudo chkconfig kibana on
 
 # Configure Elasticsearch
 echo "Configuring Elasticsearch, please wait..."
