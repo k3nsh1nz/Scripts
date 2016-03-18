@@ -65,8 +65,8 @@ sudo mkdir -p /opt/kibana
 sudo cp -R ~/kibana-4*/* /opt/kibana/
 
 sudo chown -R kibana: /opt/kibana
-cd /etc/init.d && sudo curl -o kibana https://gist.githubusercontent.com/thisismitch/8b15ac909aed214ad04a/raw/fc5025c3fc499ad8262aff34ba7fde8c87ead7c0/kibana-4.x-init
-cd /etc/default && sudo curl -o kibana https://gist.githubusercontent.com/thisismitch/8b15ac909aed214ad04a/raw/fc5025c3fc499ad8262aff34ba7fde8c87ead7c0/kibana-4.x-default
+cd /etc/init.d && sudo curl -o kibana https://raw.githubusercontent.com/k3nsh1nz/Scripts/master/monitor/kibana-4.x-init
+cd /etc/default && sudo curl -o kibana https://raw.githubusercontent.com/k3nsh1nz/Scripts/master/monitor/kibana-4.x-default
 
 sudo chmod +x /etc/init.d/kibana
 sudo service kibana start
