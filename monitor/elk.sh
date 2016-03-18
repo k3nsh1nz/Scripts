@@ -100,7 +100,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #Configure for nginx
-# mkdir /etc/nginx/sites.d
+mkdir /etc/nginx/sites.d
 # add /etc/nginx/nginx.conf "include /etc/nginx/sites.d/*.conf;"
 echo -e 'server {
     listen 80;
