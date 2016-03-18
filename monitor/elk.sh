@@ -88,6 +88,23 @@ if [ $? -ne 0 ]; then
   echo 'http.cors.enabled: true' >> /etc/elasticsearch/elasticsearch.yml
 fi
 
+#Configure for nginx
+# mkdir /etc/nginx/sites.d
+# add /etc/nginx/nginx.conf "include /etc/nginx/sites.d/*.conf;"
+echo -e 'server {
+    listen 80;
+    server_name domain.com;
+
+    location / {
+        proxy_pass http://localhost:5601;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+' > /etc/nginx/sites.d/kibana.conf
 # Restart Elasticsearch
 service elasticsearch restart
 nginx -t && service nginx restart
