@@ -74,9 +74,9 @@ chown -R elasticsearch:elasticsearch /data/es
 sed -i "s|^# bootstrap.mlockall:.*$|bootstrap.mlockall: true|" /etc/elasticsearch/elasticsearch.yml
 sed -i "s|^#ES_HEAP_SIZE=.*$|ES_HEAP_SIZE=2g|" /etc/sysconfig/elasticsearch
 
-echo "Installing Marvel plugin, please wait..."
-cd /usr/share/elasticsearch/
-bin/plugin -i elasticsearch/marvel/latest
+#echo "Installing Marvel plugin, please wait..."
+#cd /usr/share/elasticsearch/
+#bin/plugin -i elasticsearch/marvel/latest
 
 # Disable auto create index and dynamic scripts
 grep "action.auto_create_index" elasticsearch.yml &> /dev/null
