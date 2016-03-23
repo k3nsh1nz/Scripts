@@ -64,6 +64,7 @@ tar xvf kibana-*.tar.gz
 sudo mkdir -p /opt/kibana
 sudo cp -R ~/kibana-4*/* /opt/kibana/
 
+sed -i "s/# elasticsearch.url:/elasticsearch.url:/g" /opt/kibana/config/kibana.yml
 sudo chown -R kibana: /opt/kibana
 cd /etc/init.d && sudo curl -o kibana https://raw.githubusercontent.com/trieuvutrung/Scripts/master/monitor/kibana-4.x-init
 cd /etc/default && sudo curl -o kibana https://raw.githubusercontent.com/trieuvutrung/Scripts/master/monitor/kibana-4.x-default
@@ -100,7 +101,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #Configure for nginx
-# mkdir /etc/nginx/sites.d
+mkdir /etc/nginx/sites.d
 # add /etc/nginx/nginx.conf "include /etc/nginx/sites.d/*.conf;"
 echo -e 'server {
     listen 80;
