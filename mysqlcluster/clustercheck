@@ -57,7 +57,9 @@ fi
 #
 WSREP_STATUS=$($MYSQL_CMDLINE -e "SHOW STATUS LIKE 'wsrep_local_state';" \
     2>${ERR_FILE} | tail -1 2>>${ERR_FILE})
-
+#
+# Check wsrep_incoming_address
+#
 ADDRESS_INCOMING=$($MYSQL_CMDLINE -e "SHOW STATUS LIKE 'wsrep_incoming_addresses';" \
     2>${ERR_FILE} | tail -1 2>>${ERR_FILE})
 
