@@ -86,7 +86,7 @@ then
         fi
     fi
     # check node not join in cluster
-    if [[ ${#ADDRESS_INCOMING} -lt 20 ]]; then
+    if [[ ${#ADDRESS_INCOMING} -le 20 ]]; then
         echo -en "HTTP/1.1 503 Service Unavailable\r\n"
         echo -en "Content-Type: text/plain\r\n"
         echo -en "Connection: close\r\n"
