@@ -12,7 +12,7 @@ from email.MIMEText import MIMEText
 time_start = time()
 f1 = open("/root/a.txt","a")
 # authorize google
-json_key = json.load(open('/root/Dropbox/token.json'))
+json_key = json.load(open('/path/../token.json'))
 scope = ['https://spreadsheets.google.com/feeds']
 credentials = SignedJwtAssertionCredentials(json_key['client_email'], json_key['private_key'].encode(), scope)
 gc = gspread.authorize(credentials)
@@ -63,7 +63,7 @@ def send_mail(toaddr,total):
 	server.ehlo()
 	server.starttls()
 	server.login(fromaddr,clgt)
-	body = "Tiền ăn nhóm:\nFile docs: xxxx"+"Số tiền: "+str(total) +"k"
+	body = "Tiền ăn nhóm:\nFile docs: xxxx\n"+"Số tiền: "+str(total) +"k"
 	msg.attach(MIMEText(body, 'plain'))
 	text = msg.as_string()
 	server.sendmail(fromaddr, toaddr, text)
