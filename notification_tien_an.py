@@ -63,7 +63,7 @@ def send_mail(toaddr,total):
 	server.ehlo()
 	server.starttls()
 	server.login(fromaddr,clgt)
-	body = "Tiền ăn nhóm:\nFile docs: https://docs.google.com/spreadsheets/d/12NYZanBAwetxHQmQe8olfbJ6BQ-K-Ho7ncwxudB7vew/edit#gid=0\n"+"Số tiền: "+str(total) +"k"
+	body = "Tiền ăn nhóm:\nFile docs: xxxx"+"Số tiền: "+str(total) +"k"
 	msg.attach(MIMEText(body, 'plain'))
 	text = msg.as_string()
 	server.sendmail(fromaddr, toaddr, text)
