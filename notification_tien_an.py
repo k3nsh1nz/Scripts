@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# set cronjob
+# 0 13 */5 * * python notification_tien_an.py
+#
 import json
 import gspread
 import smtplib
