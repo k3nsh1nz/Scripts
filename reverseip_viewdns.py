@@ -34,13 +34,11 @@ def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-host', action='store', dest='host',
                     help='Domainname or IP Server')
-	parser.add_argument('-o', action='store', dest='output',
-                    help='Output: json or xml')
 	parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 	args = parser.parse_args()
 
-	if len(sys.argv) > 4:
-		url = "http://pro.viewdns.info/reverseip/?host="+args.host+"&apikey="+API_KEY+"&output="+args.output
+	if len(sys.argv) > 2:
+		url = "http://pro.viewdns.info/reverseip/?host="+args.host+"&apikey="+API_KEY+"&output=json"
 		reverseip(url)
 	else:
 		parser.print_help()
