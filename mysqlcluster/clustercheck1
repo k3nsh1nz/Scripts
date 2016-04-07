@@ -101,4 +101,8 @@ else
     echo -en "Percona XtraDB Cluster Node is not synced.\r\n"
     sleep 0.1
     exit 1
+<<<<<<< HEAD
 fi
+=======
+fi
+>>>>>>> cb974f14422d0e262e00b8e26f2aa54e89948e69
