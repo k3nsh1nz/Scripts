@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 import argparse
 import socket
 #
-#sudo apt-get install python-prettytable
+#sudo pip install prettytable
 #http://api.hackertarget.com/reverseiplookup/?q=domains.com
 
 # api
