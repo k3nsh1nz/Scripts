@@ -37,10 +37,10 @@ def main():
 	parser.add_argument('-o', action='store', dest='output',
                     help='Output: json or xml')
 	parser.add_argument('--version', action='version', version='%(prog)s 1.0')
-	results = parser.parse_args()
+	args = parser.parse_args()
 
 	if len(sys.argv) > 4:
-		url = "http://pro.viewdns.info/reverseip/?host="+results.host+"&apikey="+API_KEY+"&output="+results.output
+		url = "http://pro.viewdns.info/reverseip/?host="+args.host+"&apikey="+API_KEY+"&output="+args.output
 		reverseip(url)
 	else:
 		parser.print_help()
