@@ -14,7 +14,6 @@ def getlink(url):
 		if re.search(r"<img src=\"\/iii\/cpro\/app\?id=",i.strip()):
 			patten = i.strip()
 
-
 	id_search = re.search(r"app\?id=(\d+)", patten)
 	sp_search = re.search(r"sp=(\d+)",url)
 
@@ -24,12 +23,14 @@ def getlink(url):
 
 #main
 def main():
+	example = '''Example: .. -url "http://example.com/abc?xyz=..."'''
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-url', default=os.environ.get('URL', None))
+	parser.add_argument('-url', action='store', dest='url',
+                    help=example)
 
 	args = parser.parse_args()
 	if not args.url:
-	    exit(parser.print_usage())
+	    exit(parser.print_help())
 	    return 1
 	else:
 		print "\nLink download :", (getlink(args.url))
