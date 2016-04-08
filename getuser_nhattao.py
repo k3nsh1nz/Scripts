@@ -3,7 +3,7 @@ import re
 import urllib2
 
 '''
-@auther: k
+@author: k
 
 '''
 
