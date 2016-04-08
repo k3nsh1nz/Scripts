@@ -3,11 +3,9 @@ import re
 import urllib2
 import argparse
 import os
-
-#
 # k
-#
 
+#fuction getlink
 def getlink(url):
 	res = urllib2.urlopen(url)
 	patten = ""
@@ -23,6 +21,7 @@ def getlink(url):
 
 	return result
 
+#main
 def main():
 	parser = argparse.ArgumentParser(description='test')
 	parser.add_argument('-url', default=os.environ.get('URL', None))
