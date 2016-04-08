@@ -2,7 +2,7 @@
 import re
 import urllib2
 import argparse
-import os
+import os,sys
 
 # k
 
@@ -30,7 +30,10 @@ def main():
 	args = parser.parse_args()
 	if not args.url:
 	    exit(parser.print_usage())
+	    return 1
 	else:
 		print "\nLink download :", (getlink(args.url))
+		return 0
+
 if __name__ == '__main__':
-	main()
+	sys.exit(main())
