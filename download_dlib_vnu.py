@@ -24,7 +24,7 @@ def getlink(url):
 
 #main
 def main():
-	parser = argparse.ArgumentParser(description='test')
+	parser = argparse.ArgumentParser()
 	parser.add_argument('-url', default=os.environ.get('URL', None))
 
 	args = parser.parse_args()
