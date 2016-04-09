@@ -39,24 +39,9 @@ def run_getuser(start_user,end_user,f_write):
 			f_write.write(get_user(url)+"\n")
 
 # 
-threading.Thread(
-        target=run_getuser,
-        args=(5000, 5500, f1),
-    ).start()
-threading.Thread(
-        target=run_getuser,
-        args=(5500, 6000, f2),
-    ).start()
-threading.Thread(
-        target=run_getuser,
-        args=(6000, 6500, f3),
-    ).start()
-threading.Thread(
-        target=run_getuser,
-        args=(6500, 7000, f4),
-    ).start()
-threading.Thread(
-        target=run_getuser,
-        args=(7000, 7500, f5),
-    ).start()
+threading.Thread(target=run_getuser,args=(5000, 5500, f1),).start()
+threading.Thread(target=run_getuser,args=(5500, 6000, f2),).start()
+threading.Thread(target=run_getuser,args=(6000, 6500, f3),).start()
+threading.Thread(target=run_getuser,args=(6500, 7000, f4),).start()
+threading.Thread(target=run_getuser,args=(7000, 7500, f5),).start()
 
