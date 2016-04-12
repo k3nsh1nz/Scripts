@@ -3,18 +3,18 @@
 import re
 import urllib2
 import threading
+from time import time
+import redis
 
 '''
 @author: k
 '''
 
-f1 = open("user_nhattao/user_nhattao1.txt",'a')
-f2 = open("user_nhattao/user_nhattao2.txt",'a')
-f3 = open("user_nhattao/user_nhattao3.txt",'a')
-f4 = open("user_nhattao/user_nhattao4.txt",'a')
-f5 = open("user_nhattao/user_nhattao5.txt",'a')
-#f6 = open("user_nhattao/user_nhattao6.txt",'a')
-#f7 = open("user_nhattao/user_nhattao7.txt",'a')
+#f1 = open("user_nhattao/user_nhattao1.txt",'a')
+#f2 = open("user_nhattao/user_nhattao2.txt",'a')
+r = redis.StrictRedis(host='localhost', port=6379, db=0)
+
+start_time = time()
 
 def get_user(url):
 	try:
@@ -32,16 +32,30 @@ def get_user(url):
 		return ""
 
 #last user: 22486699
-def run_getuser(start_user,end_user,f_write):
-	for i in range(start_user,end_user):
-		url = "https://nhattao.com/members/"+str(i)
-		if get_user(url):
-			f_write.write(get_user(url)+"\n")
+# def run_getuser(start_user,end_user,f_write):
+# 	for i in range(start_user,end_user):
+# 		url = "https://nhattao.com/members/"+str(i)
+# 		if get_user(url):
+# 			f_write.write(get_user(url)+"\n")
+#---------------------
+threads = []
+for i in range(500,1500):
+	url = "https://nhattao.com/members/"+str(i)
+	t = threading.Thread(target=get_user, args=(url,))
+	if t:
+		threads.append(t)
+		t.start()
+		r.set(i,get_user(url))
 
+#---------------------
+# for i in range(1,500):
+# 	url = "https://nhattao.com/members/"+str(i)
+# 	if get_user(url):
+# 		f2.write(get_user(url)+"\n")
+
+end_time = time()
+time_process = end_time - start_time
+print "Time time process: ", time_process
 # 
-threading.Thread(target=run_getuser,args=(5000, 5500, f1),).start()
-threading.Thread(target=run_getuser,args=(5500, 6000, f2),).start()
-threading.Thread(target=run_getuser,args=(6000, 6500, f3),).start()
-threading.Thread(target=run_getuser,args=(6500, 7000, f4),).start()
-threading.Thread(target=run_getuser,args=(7000, 7500, f5),).start()
+#threading.Thread(target=run_getuser,args=(5000, 5500, f1),).start()
 
