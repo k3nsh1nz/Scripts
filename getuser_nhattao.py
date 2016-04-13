@@ -40,7 +40,7 @@ def get_user(url):
 # 			f_write.write(get_user(url)+"\n")
 #---------------------
 threads = []
-for i in range(4000,6000):
+for i in range(8000,10000):
 	url = "https://nhattao.com/members/"+str(i)
 	t = threading.Thread(target=get_user, args=(url,))
 	if t:
