@@ -7,6 +7,7 @@ import sys
 #
 
 #pip install python-nmap
+#apt-get install nmap
 #function scan 
 def findTgst(subNet,port):
 	nm = nmap.PortScanner()
