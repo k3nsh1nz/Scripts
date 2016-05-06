@@ -18,7 +18,10 @@ def proccess_log(log):
 def main():
 	file = open("modsec.log","r")
 	for line in file:
-		proccess_log(line)
+		try:
+			proccess_log(line)
+		except Exception, e:
+			raise e
 
 	print arr
 
