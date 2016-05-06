@@ -1,11 +1,26 @@
 #!/usr/bin/python
-#@: k
+
+#@:k
 
 import re
+import time, sys
 import MySQLdb
 
-db = MySQLdb.connect("localhost","root","xxx","xxx")
+db = MySQLdb.connect("localhost","username","xxx","mydb")
 cursor = db.cursor()
+
+# tail -f log file function
+def tail_f(file):
+  interval = 1.0
+
+  while True:
+    where = file.tell()
+    line = file.readline()
+    if not line:
+      time.sleep(interval)
+      file.seek(where)
+    else:
+      yield line
 
 #parse log function
 def proccess_log(log):
@@ -24,13 +39,12 @@ def proccess_log(log):
 
 #main
 def main():
-	file = open("modsec.log","r")
-	for line in file:
+	file = open("modsec.log")
+	for line in tail_f(file):
 		try:
 			proccess_log(line)
 		except Exception, e:
 			raise e
-
 
 if __name__ == '__main__':
 	main()
