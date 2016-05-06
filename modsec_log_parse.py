@@ -17,7 +17,7 @@ def proccess_log(log):
 	arr.append(msg)
 #main
 def main():
-	file = open("modsec.log","r")
+	file = open("/var/log/nginx/error.log","r")
 	for line in file:
 		try:
 			proccess_log(line)
