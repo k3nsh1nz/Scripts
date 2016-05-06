@@ -3,7 +3,7 @@ import re
 
 #k
 
-arr = []
+#parse log function
 def proccess_log(log):
 	date = re.findall(r'(\d.+\/\d+)\s(\d+:\d+:\d+)',log)
 	ip = re.findall(r'(\d+.\d+.\d+.\d+)]\s',log)
@@ -14,8 +14,9 @@ def proccess_log(log):
 	hostname = re.findall(r'\[hostname\s"([a-zA-Z1-9_-]+)',log)
 	uri = re.findall(r'uri\s"(\/[a-zA-Z1-9\.]+)',log)
 	arr.append(msg)
-
+#main
 def main():
+	arr = []
 	file = open("modsec.log","r")
 	for line in file:
 		try:
