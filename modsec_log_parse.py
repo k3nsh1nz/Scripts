@@ -31,7 +31,6 @@ def main():
 		except Exception, e:
 			raise e
 
-	#print arr
 
 if __name__ == '__main__':
 	main()
