@@ -43,8 +43,8 @@ def main():
 	for line in tail_f(file):
 		try:
 			proccess_log(line)
-		except Exception, e:
-			raise e
+		except Exception:
+			pass
 
 if __name__ == '__main__':
 	main()
