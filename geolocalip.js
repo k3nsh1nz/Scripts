@@ -7,7 +7,8 @@ var curl = new Curl();
 if (!ip) {
 	console.log("Usage: node "+process.argv[1]+" ip");
 	process.exit();
-}; 
+};
+
 curl.setOpt( 'URL', 'ipinfo.io/'+ip );
 curl.setOpt( 'FOLLOWLOCATION', true );
  
