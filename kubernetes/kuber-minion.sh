@@ -1,6 +1,7 @@
 #!/bin/bash
-# author __k__
-echo "Enter Kubernetes master API IP:"
+#
+
+echo "Enter Kubernetes master IP:"
 read IP_MASTER
 echo "Enter Kubernetes node IP:"
 read IP_MINION

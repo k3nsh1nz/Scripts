@@ -1,5 +1,5 @@
 #!/bin/bash
-# author __k__
+#
 
 #disable firewall centos 7
 systemctl stop firewalld
