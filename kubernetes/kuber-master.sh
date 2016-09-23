@@ -20,6 +20,7 @@ sed -i 's/ETCD_LISTEN_CLIENT_URLS=\"http:\/\/localhost:2379\"/ETCD_LISTEN_CLIENT
 sed -i 's/KUBE_API_ADDRESS=\"--insecure-bind-address=127.0.0.1\"/KUBE_API_ADDRESS=\"--address=0.0.0.0\"/g' /etc/kubernetes/apiserver
 sed -i 's/# KUBELET_PORT/KUBELET_PORT/g' /etc/kubernetes/apiserver
 sed -i 's/# KUBE_API_PORT/KUBE_API_PORT/g' /etc/kubernetes/apiserver
+sed -i 's/,ServiceAccount,/,/g' /etc/kubernetes/apiserver
 
 # KUBE_ADMISSION_CONTROL="--admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
 
