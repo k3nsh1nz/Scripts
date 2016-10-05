@@ -19,5 +19,5 @@ make install-plugin
 make install-daemon
 make install-daemon-config
 make install-xinetd
-#echo 5666 /etc/services
+#echo "nrpe            5666/tcp                 NRPE" >> /etc/services
 #service xinetd restart  
