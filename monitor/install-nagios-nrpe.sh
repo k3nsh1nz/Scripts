@@ -1,4 +1,5 @@
 #!/bin/bash
+yum install -y gcc glibc glibc-common gd gd-devel make net-snmp openssl-devel
 cd /usr/src
 wget https://www.nagios-plugins.org/download/nagios-plugins-1.5.tar.gz
 tar -xvf nagios-plugins-1.5.tar.gz
