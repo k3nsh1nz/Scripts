@@ -21,4 +21,5 @@ make install-daemon
 make install-daemon-config
 make install-xinetd
 echo "nrpe            5666/tcp                 NRPE" >> /etc/services
-#service xinetd restart  
+sed -i 's/127.0.0.1/172.16.2.232/g' /etc/xinetd.d/nrpe
+service xinetd restart  
