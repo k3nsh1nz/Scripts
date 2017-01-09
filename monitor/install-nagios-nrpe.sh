@@ -1,5 +1,6 @@
 #!/bin/bash
-yum install -y gcc glibc glibc-common gd gd-devel make net-snmp openssl-devel
+yum install -y gcc glibc glibc-common gd gd-devel make net-snmp openssl-devel xinetd
+useradd -u 1029 nagios
 cd /usr/src
 wget https://www.nagios-plugins.org/download/nagios-plugins-1.5.tar.gz
 tar -xvf nagios-plugins-1.5.tar.gz
@@ -19,5 +20,5 @@ make install-plugin
 make install-daemon
 make install-daemon-config
 make install-xinetd
-#echo "nrpe            5666/tcp                 NRPE" >> /etc/services
+echo "nrpe            5666/tcp                 NRPE" >> /etc/services
 #service xinetd restart  
