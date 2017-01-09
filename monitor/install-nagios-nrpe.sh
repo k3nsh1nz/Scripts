@@ -22,4 +22,5 @@ make install-daemon-config
 make install-xinetd
 echo "nrpe            5666/tcp                 NRPE" >> /etc/services
 sed -i 's/127.0.0.1/172.16.2.232/g' /etc/xinetd.d/nrpe
-service xinetd restart  
+service xinetd restart
+echo "command[check_docker]=/usr/local/nagios/libexec/check_procs -c 1:50 -C dockerd" >> /usr/local/nagios/etc/nrpe.cfg
