@@ -1,3 +1,5 @@
+#/usr/bin/python
+
 import socket
 import sys
 ip = sys.argv[1]
@@ -9,7 +11,7 @@ def check_port(ip,port):
     if result == 0:
         print "IP: %s | port %d OPEN" %(ip,port)
     else:
-        print 'IP: %s | port %d CLOSED, connect_ex returned: %s' %(ip,port,str(result))
+        print 'IP: %s | port %d CLOSED, connect_ex: %s' %(ip,port,str(result))
 
 def main():
     check_port(ip,port)
