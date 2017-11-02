@@ -2,20 +2,28 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: web
-  name: web-controller
+    name: chonmon
+  name: chonmon-controller
 spec:
   replicas: 2
   selector:
-    name: web
+    name: chonmon
   template:
     metadata:
       labels:
-        name: web
+        name: chonmon
     spec:
       containers:
-      - image: nginx
-        name: web
+      - image: chonmon:3
+        name: chonmon
+        volumeMounts:
+        - mountPath: /data/webroot/chonmon.todo.vn/
+          name: chonmon-volume
         ports:
         - containerPort: 80
           name: http-server
+        
+      volumes:
+      - name: chonmon-volume
+        hostPath:
+          path: /data/webroot/chonmon.todo.vn/

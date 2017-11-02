@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: chonmon
   labels:
-    name: web
+    name: chonmon
 spec:
   type: NodePort
   ports:
-    - nodePort: 30892
+    - nodePort: 30801
       port: 80
       targetPort: 80
       protocol: TCP
   selector:
-    name: web
+    name: chonmon
