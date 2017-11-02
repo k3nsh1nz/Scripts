@@ -2,8 +2,10 @@
 
 import socket
 import sys
+
 ip = sys.argv[1]
 port = int(sys.argv[2])
+
 def check_port(ip,port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(2)
