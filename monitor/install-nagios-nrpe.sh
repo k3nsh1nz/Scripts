@@ -1,5 +1,6 @@
 #!/bin/bash
-yum install -y gcc glibc glibc-common gd gd-devel make net-snmp openssl-devel xinetd
+yum install -y gcc glibc glibc-common gd gd-devel make net-snmp openssl-devel xinetd wget perl-DBD-mysql 
+
 useradd -u 1029 nagios
 cd /usr/src
 wget https://www.nagios-plugins.org/download/nagios-plugins-1.5.tar.gz
